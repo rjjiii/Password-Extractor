@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+</head>
+<body>
+    <input type="file" name="inputFile" id="inputFile">
+    <br>
+    <pre id="output"></pre>
+	
+<script>
+      document.getElementById('inputFile').addEventListener('change', function() {
+        var file = new FileReader();
+        file.onload = () => {
+          covertChromeCSVtoKMXML(file.result);
+        }
+        file.readAsText(this.files[0]);
+      });
+	  
+function covertChromeCSVtoKMXML(chromiumData){	
+let csvData = chromiumData
+csvData=csvData.replace(/['"]+/g, '');
+csvData=csvData.replace('username','user');
+csvData=csvData.replace('name','host');
+csvData=csvData.replace('url','formSubmitURL');
+csvData=csvData.replaceAll('\n','\nhttps://');
+console.log(csvData);
+
+
+
+
+csvData = csvData.split('\n').map(row => row.trim())
+
+let headings = csvData[0].split(',')
+
+let xml = `<xml>
+<entries ext="Password Exporter" extxmlversion="1.1" type="saved" encrypt="false">\n`
+
+for(let i = 1; i < csvData.length; i++) {
+  let details = csvData[i].split(',')
+  xml += "<entry "
+  for(let j = 0; j < headings.length; j++) {
+    xml += `${headings[j]}="${details[j]}" `;
+  }
+  xml += 'httpRealm=""/>\n'
+}
+  xml += "</entries>\n"
+  xml += "</xml>"
+console.log(xml);
+buildTempXML(xml);
+}
+
+function buildTempXML(xmltext){
+var filename = "ForPasswordExtractor.xml";
+var pom = document.createElement('a');
+var bb = new Blob([xmltext], {type: 'text/plain'});
+
+pom.setAttribute('href', window.URL.createObjectURL(bb));
+pom.setAttribute('download', filename);
+
+pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+pom.draggable = true; 
+pom.classList.add('dragout');
+
+pom.click();}
+</script>
+
+</body>
+</html>

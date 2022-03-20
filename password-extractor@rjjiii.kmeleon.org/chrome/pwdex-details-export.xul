@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!--
+  - This Source Code Form is subject to the terms of the Mozilla Public License,
+  - v. 2.0. If a copy of the MPL was not distributed with this file, You can
+  - obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+
+<!DOCTYPE window SYSTEM "chrome://pwdbackuptool/locale/passwordexporter.dtd" >
+
+<dialog xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept"
+        onload="window.opener.passwordExporter.export.populateFailed(document.getElementById('entries'));"
+        title="&passwordexporter.name;"
+        style="width: 500px;">
+
+  <vbox>
+    <groupbox>
+      <caption label="&passwordexporter.export-details-title;"/>
+      <description flex="1">&passwordexporter.export-details-line1;</description>
+      <separator class="groove"/>
+      <description>&passwordexporter.export-details-line2;</description>
+      <textbox multiline="true" id="entries" rows="10" readonly="readonly"/>
+    </groupbox>
+  </vbox>
+</dialog>

@@ -2,70 +2,54 @@
 <html>
 <head>
 
+<title>Import Passwords to K-Meleon</title>
 
+<style>body{font-family:sans-serif;margin:40px
+auto;max-width:650px;line-height:1.6;font-size:12pt;color:#444;padding:0
+10px}h1,h2,h3{line-height:1.2}</style>
 
 </head>
+
+
 <body>
-    <input type="file" name="inputFile" id="inputFile">
-    <br>
-    <pre id="output"></pre>
-	
-<script>
-      document.getElementById('inputFile').addEventListener('change', function() {
-        var file = new FileReader();
-        file.onload = () => {
-          covertChromeCSVtoKMXML(file.result);
-        }
-        file.readAsText(this.files[0]);
-      });
-	  
-function covertChromeCSVtoKMXML(chromiumData){	
-let csvData = chromiumData
-csvData=csvData.replace(/['"]+/g, '');
-csvData=csvData.replace('username','user');
-csvData=csvData.replace('name','host');
-csvData=csvData.replace('url','formSubmitURL');
-csvData=csvData.replaceAll('\n','\nhttps://');
-console.log(csvData);
 
+<h1>Import Passwords to K-Meleon</h1>
+<p>K-Meleon can import passwords using the <a href="">Password Extractor</a> extension. Many popular web browsers can export their passwords as CSV files. However, Password Extractor can only import its own custom XML format. Check out the <a href="http://kmeleonbrowser.org/wiki/TransferPasswords">online K-Meleon documentation</a> for more information.
 
+<p>To import passwords from popular web browsers, use the scripts below to convert their CSV files into compatible XML files. These XML files are also compatible with Password Exporter (for Firefox and SeaMonkey) and Password Backup Tool (for Pale Moon, New Moon, MyPal, Waterfox Classic, ArcticFox). Note that no data will leave your computer during this process. The scripts run on your computer. You can even download the pages and run them disconnected from the internet.</p>
 
+	<ul>
+		<li>
+			<b><a href="Chrome_CSVtoXML.html">Google Chrome</a></b> and similar browsers like Chromium and Ungoogled Chromium.
+		</li>
+		<li>
+			<b><a href="Edge_CSVtoXML.html">Microsoft Edge</a></b> browser for Windows.
+		</li>
+	<!-- future versions planned below
+		<li>
+			<b><a href="Chrome_CSVtoXML">Mozilla Firefox</a></b> versions 57 and up.
+		</li>
+		<li>
+			<b><a href="KeePass_CSVtoXML">KeePassXC</a></b> password manager.
+		</li>
+		<li>
+			<b><a href="Brave_CSVtoXML">Brave</a></b> browser.
+		</li>		
+		<li>
+			<b><a href="Vivaldi_CSVtoXML">Vivaldi</a></b> browser.
+		</li>		
+		<li>
+			<b><a href="Opera_CSVtoXML">Opera</a></b> version X and up.
+		</li>		
+		<li>
+			<b><a href="WoG_CSVtoXML">Walk on Grass</a></b> K-Meleon extension that runs a Chromium-based web engine on Windows XP.
+		</li>
+		-->
+	</ul>
 
-csvData = csvData.split('\n').map(row => row.trim())
-
-let headings = csvData[0].split(',')
-
-let xml = `<xml>
-<entries ext="Password Exporter" extxmlversion="1.1" type="saved" encrypt="false">\n`
-
-for(let i = 1; i < csvData.length; i++) {
-  let details = csvData[i].split(',')
-  xml += "<entry "
-  for(let j = 0; j < headings.length; j++) {
-    xml += `${headings[j]}="${details[j]}" `;
-  }
-  xml += 'httpRealm=""/>\n'
-}
-  xml += "</entries>\n"
-  xml += "</xml>"
-console.log(xml);
-buildTempXML(xml);
-}
-
-function buildTempXML(xmltext){
-var filename = "ForPasswordExtractor.xml";
-var pom = document.createElement('a');
-var bb = new Blob([xmltext], {type: 'text/plain'});
-
-pom.setAttribute('href', window.URL.createObjectURL(bb));
-pom.setAttribute('download', filename);
-
-pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
-pom.draggable = true; 
-pom.classList.add('dragout');
-
-pom.click();}
-</script>
-
+</br>
+<small>
+Copyright © 2022 R.J.J. III. Source code for Password Extractor and its conversion scripts are available under the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License version 2.0</a>. 
+</small>
 </body>
 </html>

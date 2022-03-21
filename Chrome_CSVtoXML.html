@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Convert Google Chrome Passwords (CSV) to K-Meleon (XML)</title>
+
+<style>body{font-family:sans-serif;margin:40px
+auto;max-width:650px;line-height:1.6;font-size:12pt;color:#444;padding:0
+10px}h1,h2,h3{line-height:1.2}</style>
+
+</head>
+
+
+<body>
+
+<h1>Convert Google Chrome Passwords to XML</h1>
+<p>To use Chrome's passwords in K-Meleon export a comma-separated value (CSV) file from Chrome, convert it into a K-Meleon Password Extractor XML file with this page, and open the XML file in K-Meleon using the Password Extractor. Check out the <a href="http://kmeleonbrowser.org/wiki/TransferPasswords">online K-Meleon documentation</a> for more information. To export your passwords from Chrome:</p>
+
+	<ol>
+		<li>
+			Open Google Chrome, click <b>Profile</b> (person icon), and <b>Password</b> (key icon).
+		</li>
+		<li>
+			Click the <b>3 dots</b> above your saved passwords.
+		</li>
+		<li>
+			Select <b>Export Passwords</b> and then click <b>Export Passwords</b> again.
+		</li>
+		<li>
+			Enter your computer's password and click the <b>OK</b> button.
+		</li>
+		<li>
+			Choose a file name and export your passwords to a CSV file.
+		</li>
+	</ol>
+
+<p>
+Once you have a CSV file, click the button below. Select your file, click <b>open</b>, and a converted XML will download. Open that XML file with Password Extractor. Note that this script runs entirely on your computer and involves no third parties. You can even download this page and run it disconnected from the internet.</p>
+
+<p>    
+	<input type="file" name="inputFile" id="inputFile" accept="text/csv">
+</p>
+
+<script>
+      document.getElementById('inputFile').addEventListener('change', function() {
+        var file = new FileReader();
+        file.onload = () => {
+          covertChromeCSVtoKMXML(file.result);
+        }
+        file.readAsText(this.files[0]);
+      });
+	  
+function covertChromeCSVtoKMXML(chromiumData){	
+let csvData = chromiumData
+csvData=csvData.replace(/['"]+/g, '');
+csvData=csvData.replace('username','user');
+csvData=csvData.replace('name','host');
+csvData=csvData.replace('url','formSubmitURL');
+csvData=csvData.replaceAll('\n','\nhttps://');
+console.log(csvData);
+
+
+
+
+csvData = csvData.split('\n').map(row => row.trim())
+
+let headings = csvData[0].split(',')
+
+let xml = `<xml>
+<entries ext="Password Exporter" extxmlversion="1.1" type="saved" encrypt="false">\n`
+
+for(let i = 1; i < csvData.length; i++) {
+  let details = csvData[i].split(',')
+  xml += "<entry "
+  for(let j = 0; j < headings.length; j++) {
+    xml += `${headings[j]}="${details[j]}" `;
+  }
+  xml += 'httpRealm=""/>\n'
+}
+  xml += "</entries>\n"
+  xml += "</xml>"
+console.log(xml);
+buildTempXML(xml);
+}
+
+function buildTempXML(xmltext){
+var filename = "ForPasswordExtractor.xml";
+var pom = document.createElement('a');
+var bb = new Blob([xmltext], {type: 'text/plain'});
+
+pom.setAttribute('href', window.URL.createObjectURL(bb));
+pom.setAttribute('download', filename);
+
+pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+pom.draggable = true; 
+pom.classList.add('dragout');
+
+pom.click();}
+</script>
+</br>
+<small>
+Copyright © 2022 R.J.J. III. Source code for Password Extractor and its conversion scripts are available under the <a href="http://mozilla.org/MPL/2.0/">Mozilla Public License version 2.0</a>. 
+</small>
+</body>
+</html>

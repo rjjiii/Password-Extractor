@@ -34,7 +34,7 @@ var passwordExporter = {
         this.import = passwordExporterLoginMgr.import;
 
         // Create string bundle
-        this.stringBundle = Services.strings.createBundle("chrome://pwdbackuptool/locale/passwordexporter.properties");
+        this.stringBundle = Services.strings.createBundle("chrome://pwdextractor/locale/passwordexporter.properties");
 
         this.initiated = true;
     },
@@ -50,8 +50,8 @@ var passwordExporter = {
     checkAgreement: function() {
         var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("");
 
-        if (prefs.getPrefType('extensions.pwdbackuptool.agreeVersion') == prefs.PREF_STRING) {
-            if (this.version == prefs.getCharPref('extensions.pwdbackuptool.agreeVersion')) {
+        if (prefs.getPrefType('extensions.pwdextractor.agreeVersion') == prefs.PREF_STRING) {
+            if (this.version == prefs.getCharPref('extensions.pwdextractor.agreeVersion')) {
                 this.accepted = true;
                 return true;
             }
@@ -59,7 +59,7 @@ var passwordExporter = {
 
         prefs = null;
 
-        window.openDialog("chrome://pwdbackuptool/content/firstrunDialog.xul", "","chrome,resizable,centerscreen,close=no,modal");
+        window.openDialog("chrome://pwdextractor/content/firstrunDialog.xul", "","chrome,resizable,centerscreen,close=no,modal");
         return false;
     },
 
@@ -67,7 +67,7 @@ var passwordExporter = {
     setAgreement: function() {
         var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getBranch("");
 
-        prefs.setCharPref('extensions.pwdbackuptool.agreeVersion', this.version);
+        prefs.setCharPref('extensions.pwdextractor.agreeVersion', this.version);
         this.accepted = true;
     },
 

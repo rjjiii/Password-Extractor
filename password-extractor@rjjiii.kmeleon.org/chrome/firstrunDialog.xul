@@ -6,9 +6,9 @@
   - obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
-<?xml-stylesheet href="chrome://pwdbackuptool/skin/passwordexporter.css" type="text/css"?>
+<?xml-stylesheet href="chrome://pwdextractor/skin/passwordexporter.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://pwdbackuptool/locale/passwordexporter.dtd" >
+<!DOCTYPE window SYSTEM "chrome://pwdextractor/locale/passwordexporter.dtd" >
 
 <dialog xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -19,11 +19,11 @@
         style="width: 350px;">
 
   <!-- Global functions -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/pwdex-global.js"/>
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/pwdex-global.js"/>
   <!-- Login Manager (Firefox 3+) -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/pwdex-loginmanager.js"/>
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/pwdex-loginmanager.js"/>
   <!-- Legacy Storage code -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/storage-Legacy.js"/>
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/storage-Legacy.js"/>
 
   <vbox>
     <groupbox>

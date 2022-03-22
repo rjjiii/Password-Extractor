@@ -1,6 +1,6 @@
-content     pwdbackuptool    chrome/
-skin        pwdbackuptool    classic/1.0   skin/
+content     pwdextractor    chrome/
+skin        pwdextractor    classic/1.0   skin/
 
-locale      pwdbackuptool    en-US   locale/en-US/
-locale      pwdbackuptool    ru-RU   locale/ru-RU/
-locale      pwdbackuptool    es-MX   locale/es-MX/
+locale      pwdextractor    en-US   locale/en-US/
+locale      pwdextractor    ru-RU   locale/ru-RU/
+locale      pwdextractor    es-MX   locale/es-MX/

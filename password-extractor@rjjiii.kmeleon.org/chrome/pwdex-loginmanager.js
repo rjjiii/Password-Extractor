@@ -18,7 +18,7 @@ Cu.import("resource://gre/modules/Services.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "Sqlite",
                                   "resource://gre/modules/Sqlite.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "OSCrypto",
-                                  "chrome://pwdbackuptool/content/OSCrypto.jsm");
+                                  "chrome://pwdextractor/content/OSCrypto.jsm");
 
 const AUTH_TYPE = {
   SCHEME_HTML: 0,
@@ -106,7 +106,7 @@ var passwordExporterLoginMgr = {
                                     null, passwordExporter.getString('passwordexporter.show-details'), null, null, {});
 
                         if (response == 1)
-                            win.openDialog("chrome://pwdbackuptool/content/pwdex-details-export.xul", "","chrome,resizable,centerscreen,close=no,modal");
+                            win.openDialog("chrome://pwdextractor/content/pwdex-details-export.xul", "","chrome,resizable,centerscreen,close=no,modal");
                     }
                 });
             }
@@ -353,7 +353,7 @@ var passwordExporterLoginMgr = {
                 key4file.append("key4.db");
                 if (typeof forge !== 'object') {
                     var loader = Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader);
-                    loader.loadSubScript("chrome://pwdbackuptool/content/forge.min.js");
+                    loader.loadSubScript("chrome://pwdextractor/content/forge.min.js");
                     // entry: ['./lib/asn1.js', './lib/sha1.js', './lib/hmac.js', './lib/des.js', './lib/forge.js'],
                 }
                 let that = this;
@@ -743,7 +743,7 @@ var passwordExporterLoginMgr = {
 
         // Open the import details window
         showDetailsWindow: function() {
-            window.openDialog("chrome://pwdbackuptool/content/pwdex-details-import.xul", "","chrome,resizable,centerscreen,close=no,modal");
+            window.openDialog("chrome://pwdextractor/content/pwdex-details-import.xul", "","chrome,resizable,centerscreen,close=no,modal");
         },
 
         // populate details textbox with failed entries

@@ -15,7 +15,7 @@ this.EXPORTED_SYMBOLS = ["OSCrypto"];
 var OSCrypto = {};
 
 if (Services.appinfo.OS == "WINNT") {
-  Services.scriptloader.loadSubScript("chrome://pwdbackuptool/content/OSCrypto_win.js", this);
+  Services.scriptloader.loadSubScript("chrome://pwdextractor/content/OSCrypto_win.js", this);
 } else {
   throw new Error("OSCrypto.jsm isn't supported on this platform");
 }

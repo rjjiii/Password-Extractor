@@ -2,7 +2,7 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
     <em:id>password-extractor@rjjiii.kmeleon.org</em:id>
-    <em:version>2.0</em:version>
+    <em:version>3.0</em:version>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
     <em:multiprocessCompatible>true</em:multiprocessCompatible>
@@ -15,7 +15,7 @@
     <em:contributor>Philip Chee &lt;philip.chee@gmail.com&gt;></em:contributor>
     <em:contributor>Jorge Villalobos &lt;Jorge Villalobos&gt;</em:contributor>
     <em:homepageURL>https://github.com/rjjiii/Password-Extractor</em:homepageURL>
-    <em:optionsURL>chrome://pwdbackuptool/content/pwdexDialog.xul</em:optionsURL>
+    <em:optionsURL>chrome://pwdextractor/content/pwdexDialog.xul</em:optionsURL>
     <em:localized>
         <Description>
             <em:locale>ru</em:locale>
@@ -27,7 +27,7 @@
         <Description>
             <em:locale>es-MX</em:locale>
             <em:name>Password Extractor</em:name>
-            <em:description>Importa y exporta sus contraseñas.</em:description>
+            <em:description>Importa y exporta sus contraseñas</em:description>
         </Description>
     </em:localized>
     <em:translator>cs-CZ: zvedavaolihen</em:translator>

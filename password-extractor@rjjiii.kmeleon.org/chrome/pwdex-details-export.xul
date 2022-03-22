@@ -7,7 +7,7 @@
 
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
 
-<!DOCTYPE window SYSTEM "chrome://pwdbackuptool/locale/passwordexporter.dtd" >
+<!DOCTYPE window SYSTEM "chrome://pwdextractor/locale/passwordexporter.dtd" >
 
 <dialog xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"

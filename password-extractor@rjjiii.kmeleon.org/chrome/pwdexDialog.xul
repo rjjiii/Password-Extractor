@@ -7,7 +7,7 @@
 
 <?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
 
-<!DOCTYPE window SYSTEM "chrome://pwdbackuptool/locale/passwordexporter.dtd" >
+<!DOCTYPE window SYSTEM "chrome://pwdextractor/locale/passwordexporter.dtd" >
 
 <dialog id="passwordexporter-dialog"
   windowtype="passwordexporter-dialog"
@@ -17,11 +17,11 @@
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <!-- Global functions -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/pwdex-global.js" />
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/pwdex-global.js" />
   <!-- Login Manager (Firefox 3+) -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/pwdex-loginmanager.js" />
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/pwdex-loginmanager.js" />
   <!-- Legacy Storage code -->
-  <script type="application/x-javascript" src="chrome://pwdbackuptool/content/storage-Legacy.js" />
+  <script type="application/x-javascript" src="chrome://pwdextractor/content/storage-Legacy.js" />
 
   <vbox flex="1" id="pwdex-tabpanel">
     <groupbox>

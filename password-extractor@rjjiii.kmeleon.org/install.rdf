@@ -2,12 +2,12 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
     <em:id>password-extractor@rjjiii.kmeleon.org</em:id>
-    <em:version>3.0</em:version>
+    <em:version>3.1</em:version>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
     <em:multiprocessCompatible>true</em:multiprocessCompatible>
     <em:name>Password Extractor</em:name>
-    <em:description>Export and import your saved passwords</em:description>
+    <em:description>Import and export passwords.</em:description>
 	<em:creator>RJJ III</em:creator>
     <em:contributor>Off JustOff &lt;Off.Just.Off@gmail.com&gt;</em:contributor>
     <em:contributor>Justin Scott &lt;fligtar@gmail.com&gt;</em:contributor>
@@ -27,7 +27,7 @@
         <Description>
             <em:locale>es-MX</em:locale>
             <em:name>Password Extractor</em:name>
-            <em:description>Importa y exporta sus contraseñas</em:description>
+            <em:description>Importa y exporta sus contraseñas.</em:description>
         </Description>
     </em:localized>
     <em:translator>cs-CZ: zvedavaolihen</em:translator>
@@ -62,7 +62,7 @@
       <em:targetApplication>
       <Description>
         <em:id>{944df56f-c0ec-4d7b-94b6-f625c8cc96ea}</em:id>  
-        <em:minVersion>74.0</em:minVersion>
+        <em:minVersion>75.0</em:minVersion>
         <em:maxVersion>77.*</em:maxVersion>
       </Description>
     </em:targetApplication> 
